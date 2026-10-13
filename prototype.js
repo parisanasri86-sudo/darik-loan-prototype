@@ -51,13 +51,14 @@ for(const a of h.a){if(a.type==='BACK'){goBack();return;}if(a.type==='URL'&&a.ur
 function render(id,options={}){
 const n=nodes.get(id);if(!n)throw Error('Unknown screen '+id);clear();current=id;screen.replaceChildren();screen.dataset.node=id;screen.style.width=n.w+'px';screen.style.height=n.h+'px';
 const base=imageFor(id).cloneNode();base.className='base';base.alt='اسکرین '+n.n;base.width=n.w;base.height=n.h;base.draggable=false;base.onerror=()=>fail('بارگذاری تصویر انجام نشد؛ صفحه را دوباره باز کنید.');screen.append(base);
+if(id===data.start&&window.renderLoanIntro){base.style.visibility="hidden";window.renderLoanIntro(screen);}
 const stamp=epoch;
 for(const h of n.hs){
 if(h.t?.type==='AFTER_TIMEOUT'){
 const change=h.a.find(a=>a.nav==='CHANGE_TO');if(change?.to==='244:14324'){dots(h);continue;}
 schedule(()=>{if(stamp===epoch)action(h);},h.t.timeout*1000);continue;}
 if(h.t?.type!=='ON_CLICK'||!h.xy)continue;
-const button=document.createElement('button');button.className='hotspot';button.dataset.hotspot=h.id;button.type='button';button.setAttribute('aria-label',h.a.some(a=>a.type==='BACK')?'بازگشت':h.a.some(a=>a.to==='244:14342')?'پشتیبانی':h.a.some(a=>a.nav==='CHANGE_TO')?'حذف از علاقه‌مندی‌ها':'ادامهٔ پروتوتایپ');addBox(button,h.xy);button.onclick=()=>action(h);screen.append(button);
+const button=document.createElement('button');button.className='hotspot';button.dataset.hotspot=h.id;button.type='button';button.setAttribute('aria-label',h.a.some(a=>a.type==='BACK')?'بازگشت':h.a.some(a=>a.to==='244:14342')?'پشتیبانی':h.a.some(a=>a.nav==='CHANGE_TO')?'حذف از علاقه‌مندی‌ها':'ادامهٔ پروتوتایپ');addBox(button,id===data.start&&h.id==="5765:190314"?[16,748,343,42]:h.xy);button.onclick=()=>action(h);screen.append(button);
 if(h.a.some(a=>a.nav==='CHANGE_TO')&&variants.get(id+':'+h.id)==='default'){
 const a=h.a[0],v=document.createElement('div');v.className='variant';v.style.background='#fff';addBox(v,h.xy.map((x,i)=>i<2?x-8:x+16));v.innerHTML=data.favorites.find(s=>s.id===a.to).svg;screen.append(v);}
 }
