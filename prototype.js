@@ -11,7 +11,7 @@ let current=data.start,epoch=0,zoomStep=null;
 const zoomSteps=[.5,.65,.8,.9,1,1.1,1.25],screenNames=window.LOAN_SCREEN_NAMES||{};
 const footerCropScreens=new Set(['5765:189755','5765:189825','5765:189904','5765:189974','5765:190639','5765:190817','5765:190940']);
 const asset=path=>window.PROTOTYPE_ASSETS?.[path]||path;
-const file=id=>'images/screens/'+id.replace(':','-')+'.png';
+const file=id=>'images/screens/'+id.replace(':','-')+'.png?v=20261015-full';
 function fail(message){const e=document.querySelector('#error');e.textContent=message;e.style.display='block';}
 function imageFor(id){if(!images.has(id)){const img=new Image();img.src=file(id);images.set(id,img);}return images.get(id);}
 for(const n of orderedScreens){if(!n)continue;const opt=document.createElement('option');opt.value=n.id;opt.textContent=screenNames[n.id]||n.n;picker.append(opt);imageFor(n.id);}

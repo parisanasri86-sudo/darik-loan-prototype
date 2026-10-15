@@ -9,7 +9,7 @@
     Object.assign(el.style,{position:'absolute',left:x+'px',top:y+'px',width:w+'px',height:h+'px',background:bg,color,fontSize:size+'px',fontWeight:String(weight),fontFamily:'IRANSansFaNum,sans-serif',textAlign:align,display:'flex',alignItems:'center',justifyContent:align==='left'?'flex-end':align==='center'?'center':'flex-start',direction:'rtl',lineHeight:typeof lineHeight==='number'?lineHeight+'px':lineHeight,padding:'0 2px',pointerEvents:'none',zIndex:'4'});root.append(el);
   }
   function namePatch(root,y,bg=white,x=240,w=106,padRight=0){
-    const el=document.createElement('div');el.className='loan-name-patch';Object.assign(el.style,{position:'absolute',left:x+'px',top:y+'px',width:w+'px',height:'28px',background:bg,color:bg===white?'#26343d':'#fff',display:'flex',alignItems:'center',justifyContent:'flex-start',gap:'4px',direction:'rtl',paddingRight:padRight+'px',font:'700 14px IRANSansFaNum,sans-serif',pointerEvents:'none',zIndex:'4'});el.innerHTML='<img src="images/arvand.png" alt="" style="width:18px;height:22px;object-fit:contain">آروند';root.append(el);
+    const el=document.createElement('div');el.className='loan-name-patch';Object.assign(el.style,{position:'absolute',left:x+'px',top:y+'px',width:w+'px',height:'28px',background:bg,color:bg===white?'#26343d':'#fff',display:'flex',alignItems:'center',justifyContent:'flex-start',gap:'4px',direction:'rtl',paddingRight:padRight+'px',font:'700 14px IRANSansFaNum,sans-serif',pointerEvents:'none',zIndex:'4'});el.innerHTML='<img src="images/arvand.png?v=20261015-full" alt="" style="width:18px;height:22px;object-fit:contain">آروند';root.append(el);
   }
   function exactWalletCard(root,id){
     const img=document.createElement('img');
@@ -22,7 +22,7 @@
   function planBadgePatch(root,y){
     const cover=document.createElement('span');
     Object.assign(cover.style,{position:'absolute',left:'172px',top:(y-2)+'px',width:'32px',height:'34px',background:'#e5f4f5',pointerEvents:'none',zIndex:'4'});
-    const icon=document.createElement('img');icon.src='images/arvand.png';icon.alt='نماد آروند';
+    const icon=document.createElement('img');icon.src='images/arvand.png?v=20261015-full';icon.alt='نماد آروند';
     Object.assign(icon.style,{position:'absolute',left:'172px',top:y+'px',width:'32px',height:'32px',objectFit:'contain',pointerEvents:'none',zIndex:'5'});
     root.append(cover,icon);
   }
