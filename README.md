@@ -1,14 +1,11 @@
-# Darik loan prototype
+# نمونه تعاملی خط اعتباری
 
-Source: Figma Darik, section 5765:188743; starting screen 5765:190283.
-The Figma file was inspected and exported without changing source nodes.
+این نسخه از فلو وام داریک بر پایهٔ تصاویر خروجی فیگما ساخته شده است. ۳۷ صفحهٔ مربوط به وام در قاب موبایل نمایش داده می‌شوند؛ ۹ صفحهٔ پشتیبانی آنلاین و هر صفحهٔ پروفایل از فلو و منوی انتخاب صفحه کنار گذاشته شده‌اند. مسیر اصلی پس از معرفی و انتخاب طرح با وام ۱٬۰۰۰٬۰۰۰٬۰۰۰ ریالی «آروند» ادامه دارد.
 
-The viewer preserves original PNG screen pixels, source hotspot positions, navigation/back actions, and two-second automatic transitions. The section contains 37 full-width screens: 31 are reachable from its starting point and six have no incoming connection in the original flow. Nine connected support screens are also included. The viewer's screen selector can open all 46 exported screens without inventing links inside the design.
+برای پیش‌نمایش محلی، در همین پوشه `python3 -m http.server 4180` را اجرا کنید و `http://127.0.0.1:4180/` را باز کنید. منوی بالا انتخاب صفحه، بازگشت، شروع دوباره، نمایش نقاط کلیک و زوم مرحله‌ای را دارد. صفحات بلند داخل قاب گوشی اسکرول می‌شوند. زوم تا حداکثر ۱۰۰٪ منبع محدود شده تا تصاویر بیش از رزولوشن اصلی بزرگ نشوند.
 
-Shop favorite state changes use the original Figma SVG states. Support loading dots and Smart Animate transitions are reconstructed in browser code using exported original layers, timing, and easing. This is a presentation prototype; it does not perform actual credit, identity, SMS, or payment operations.
+انتخاب طرح از ۵۰۰ میلیون تا ۳ میلیارد ریال با گام ۵۰۰ میلیون ریال، فلش و سوایپ انجام می‌شود. نام‌ها و نمادها به‌ترتیب آرمان، آروند، مانا، کیان، مهراز و سرآمد هستند. برنامهٔ اقساط طرح‌های ۵۰۰ میلیون و ۱ میلیارد ریالی ارقام قبلی را حفظ می‌کند؛ برای طرح‌های بالاتر مبلغ قسط با سود سالانهٔ ۲۳٪ و بازپرداخت ماهانه محاسبه می‌شود. حق اشتراک ۰٫۹٪ مجموع بازپرداخت است. این صرفاً نمونهٔ نمایشی است و عملیات واقعی بانکی انجام نمی‌دهد.
 
-Validation: all 46 screen PNG dimensions and all navigation destinations checked; 40 support-animation layer exports included. The runtime harness exercises 106 click hotspots, six automatic transitions, the full 24-step main route, back, and restart. Native browser automation was unavailable, so complete rendered browser QA is not claimed.
+تصاویر اصلی صفحات ۳۷۵ پیکسل عرض دارند و بدون فشرده‌سازی مجدد از خروجی قبلی استفاده می‌شوند. نمادهای طرح‌ها فایل‌های ۱۲۵۴×۱۲۵۴ پیکسلی کاربر هستند.
 
-Hosting: an initial Sites project is retained in .openai/hosting.json but remains unpublished because its Git hosting endpoint timed out. Publication uses the separate public repository parisanasri86-sudo/darik-loan-prototype through the authorized Composio connection.
-
-Local preview: dist/index.html. All image data is embedded in dist/assets.js for reliable public deployment. Original exports remain in dist/assets.
+نسخهٔ تأییدشده از طریق GitHub Pages همین مخزن منتشر می‌شود.
