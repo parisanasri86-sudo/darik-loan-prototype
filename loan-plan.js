@@ -1,12 +1,12 @@
 'use strict';
 (() => {
   const plans = [
-    {name:'آرمان', amount:500000000, icon:'arman.png', months:[6,12], installment:89012040, total:534072210},
-    {name:'آروند', amount:1000000000, icon:'arvand.png', months:[6,12,18], selectedMonth:12, installment:94076320, total:1128915860},
-    {name:'مانا', amount:1500000000, icon:'mana.png', months:[6,12,18]},
-    {name:'کیان', amount:2000000000, icon:'kian.png', months:[12,18,24]},
-    {name:'مهراز', amount:2500000000, icon:'mehras.png', months:[12,18,24]},
-    {name:'سرآمد', amount:3000000000, icon:'saramad.png', months:[12,18,24]}
+    {name:'آوند', amount:500000000, icon:'arman.png', months:[6,12], installment:89012040, total:534072210},
+    {name:'گوهر', amount:1000000000, icon:'arvand.png', months:[6,12,18], selectedMonth:12, installment:94076320, total:1128915860},
+    {name:'سرآمد', amount:1500000000, icon:'mana.png', months:[6,12,18]},
+    {name:'فاخر', amount:2000000000, icon:'kian.png', months:[12,18,24]},
+    {name:'والا', amount:2500000000, icon:'mehras.png', months:[12,18,24]},
+    {name:'آرمان', amount:3000000000, icon:'saramad.png', months:[12,18,24]}
   ];
   const fmt = n => Math.round(n).toLocaleString('fa-IR');
   const money = (n,kind='') => `<span class="money ${kind}"><b>${fmt(n)}</b><span class="rial-icon" role="img" aria-label="ریال"></span></span>`;
