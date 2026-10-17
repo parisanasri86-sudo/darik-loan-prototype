@@ -3,7 +3,7 @@
   const plans = [
     {name:'آوند', amount:500000000, icon:'arman.png', months:[6,12], installment:89012040, total:534072210},
     {name:'گوهر', amount:1000000000, icon:'arvand.png', months:[6,12,18], selectedMonth:12, installment:94076320, total:1128915860},
-    {name:'سرآمد', amount:1500000000, icon:'mana.png', months:[6,12,18]},
+    {name:'سرآمد', amount:1500000000, icon:'mana.png', months:[12,18,24], selectedMonth:12},
     {name:'فاخر', amount:2000000000, icon:'kian.png', months:[12,18,24]},
     {name:'والا', amount:2500000000, icon:'mehras.png', months:[12,18,24]},
     {name:'آرمان', amount:3000000000, icon:'saramad.png', months:[12,18,24]}
@@ -13,7 +13,7 @@
   const subscriptionRial = plan => {
     const months=plan.selectedMonth||plan.months[0];
     if(months===6&&plan.amount===500000000) return 27000000;
-    if(months===6&&plan.amount===1500000000) return 81000000;
+    if(months===12&&plan.amount===1500000000) return 153000000;
     const reference=months===6?{amount:500000000,fee:48254584}:{amount:1000000000,fee:102000000};
     return Math.round(plan.amount*reference.fee/reference.amount);
   };
