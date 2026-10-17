@@ -12,6 +12,8 @@
   const money = (n,kind='') => `<span class="money ${kind}"><b>${fmt(n)}</b><span class="rial-icon" role="img" aria-label="ریال"></span></span>`;
   const subscriptionRial = plan => {
     const months=plan.selectedMonth||plan.months[0];
+    if(months===6&&plan.amount===500000000) return 27000000;
+    if(months===6&&plan.amount===1500000000) return 81000000;
     const reference=months===6?{amount:500000000,fee:48254584}:{amount:1000000000,fee:102000000};
     return Math.round(plan.amount*reference.fee/reference.amount);
   };
