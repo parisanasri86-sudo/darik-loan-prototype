@@ -59,6 +59,23 @@ const n=nodes.get(id);if(!n)throw Error('Unknown screen '+id);clear();current=id
 const base=imageFor(id).cloneNode();base.className='base';base.alt='اسکرین '+n.n;base.width=n.w;base.height=n.h;base.draggable=false;base.onerror=()=>fail('بارگذاری تصویر انجام نشد؛ صفحه را دوباره باز کنید.');screen.append(base);
 if(id===data.start&&window.renderLoanIntro){
   base.style.visibility='hidden';window.renderLoanIntro(screen);
+  const intro=screen.querySelector('.loan-intro');
+  const introDeck=intro?.querySelector('.intro-deck');
+  const introFooter=intro?.querySelector('.intro-footer');
+  if(introDeck)introDeck.style.top='98px';
+  if(introFooter)introFooter.style.display='none';
+  if(intro){
+    const cta=document.createElement('div');
+    cta.className='intro-cta-visual';cta.setAttribute('aria-hidden','true');cta.textContent='شروع درخواست وام';
+    Object.assign(cta.style,{position:'absolute',left:'16px',top:'612px',width:'343px',height:'42px',borderRadius:'12px',background:'#092a47',color:'#fff',display:'flex',alignItems:'center',justifyContent:'center',direction:'rtl',font:'500 16px/24px IRANSansFaNum,sans-serif',pointerEvents:'none'});
+    intro.append(cta);
+    const nav=document.createElement('div');
+    nav.className='intro-nav';nav.setAttribute('aria-hidden','true');
+    Object.assign(nav.style,{position:'absolute',left:'0',top:'732px',width:'375px',height:'80px',pointerEvents:'none'});
+    const navVisual=document.createElement('span');
+    Object.assign(navVisual.style,{position:'absolute',left:'0',top:'-36px',width:'375px',height:'116px',background:"url('images/screens/5765-190044.png?v=20261015-full') 0 -760px / 375px 876px no-repeat",pointerEvents:'none'});
+    nav.append(navVisual);intro.append(nav);
+  }
   const first=screen.querySelector('.intro-card[data-loan-node="150:7044"]');
   if(first){
     first.style.background='url("images/intro-card-2x.png") center / 343px 490px no-repeat';
@@ -79,7 +96,7 @@ const change=h.a.find(a=>a.nav==='CHANGE_TO');if(change?.to==='244:14324'){dots(
 schedule(()=>{if(stamp===epoch)action(h);},h.t.timeout*1000);continue;}
 if(h.t?.type!=='ON_CLICK'||!h.xy)continue;
 if(h.a.some(a=>a.to&&hiddenScreens.has(a.to)))continue;
-const button=document.createElement('button');button.className='hotspot';button.dataset.hotspot=h.id;button.type='button';button.setAttribute('aria-label',h.a.some(a=>a.type==='BACK')?'بازگشت':h.a.some(a=>a.to==='244:14342')?'پشتیبانی':h.a.some(a=>a.nav==='CHANGE_TO')?'حذف از علاقه‌مندی‌ها':'ادامهٔ پروتوتایپ');addBox(button,id===data.start&&h.id==="5765:190314"?[16,748,343,42]:h.xy);button.onclick=()=>action(h);screen.append(button);
+const button=document.createElement('button');button.className='hotspot';button.dataset.hotspot=h.id;button.type='button';button.setAttribute('aria-label',h.a.some(a=>a.type==='BACK')?'بازگشت':h.a.some(a=>a.to==='244:14342')?'پشتیبانی':h.a.some(a=>a.nav==='CHANGE_TO')?'حذف از علاقه‌مندی‌ها':'ادامهٔ پروتوتایپ');addBox(button,id===data.start&&h.id==="5765:190314"?[16,612,343,42]:h.xy);button.onclick=()=>action(h);screen.append(button);
 if(h.a.some(a=>a.nav==='CHANGE_TO')&&variants.get(id+':'+h.id)==='default'){
 const a=h.a[0],v=document.createElement('div');v.className='variant';v.style.background='#fff';addBox(v,h.xy.map((x,i)=>i<2?x-8:x+16));v.innerHTML=data.favorites.find(s=>s.id===a.to).svg;screen.append(v);}
 }
